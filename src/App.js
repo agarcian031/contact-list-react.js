@@ -60,15 +60,12 @@ class App extends Component {
           </Header>
           <Divider />
           <br/>
-          <Segment basic>
-            <Button icon color="blue" onClick={this.toggleForm}> 
+            <Button floated='left' icon color="blue" onClick={this.toggleForm}> 
               <Icon name={this.state.showForm ? "angle double up" : "angle double down"}/> 
             </Button>
+          <Segment basic>
             {this.state.showForm ? <ContactForm add={this.addContact}/> : null}
-          
-        
           </Segment>
-          <br/>
           <br/>
           <Contacts 
           contactList={this.state.contacts} 
