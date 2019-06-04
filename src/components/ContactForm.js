@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import {Form} from 'semantic-ui-react'; 
 
 export default class ContactForm extends Component {
+  // Name of the state needs to match the name in the input form. 
   state = { name: "", phone: "", }; 
 
-  handleChange = (e) => {
+  handleChange = (e, {name, value, }) => {
     // switch(e.target.name) {
     //   case "name": 
     //   this.setState({name: e.target.value})
@@ -13,7 +14,7 @@ export default class ContactForm extends Component {
     //   this.setState({phone: e.target.value})
     //   break
     // }
-    this.setState({[e.target.name]: e.target.value, })
+    this.setState({[name]: value,})
 
   };
   render() {
