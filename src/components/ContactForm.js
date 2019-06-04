@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Form} from 'semantic-ui-react'; 
+import {Form, FormInput} from 'semantic-ui-react'; 
 
 export default class ContactForm extends Component {
   // Name of the state needs to match the name in the input form. 
@@ -17,11 +17,15 @@ export default class ContactForm extends Component {
     this.setState({[name]: value,})
 
   };
+
+  handleSubmit = (event) => {
+    debugger
+  }
+
   render() {
     return (
-      <Form>
+      <Form onSubmit={this.handleSubmit}>
        <Form.Group widths="equal">
-         <Form.Field inline>
          <Form.Input
          fluid
          label="Name:"
@@ -40,8 +44,7 @@ export default class ContactForm extends Component {
          onChange={this.handleChange}
          />
          <br/>
-         <Form.Button color="green" fluid>Submit</Form.Button>
-         </Form.Field>
+         <Form.Button color="green">Submit</Form.Button>
          </Form.Group> 
       </Form>
     )

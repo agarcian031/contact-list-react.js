@@ -11,7 +11,7 @@ const Contact = ({firstName, phone, }) => (
     <Table.Cell>{phone}</Table.Cell>
     <Table.Cell>
       <Button color="red" icon>
-        <Icon name="lemon"/> 
+        <Icon name="trash alternate"/> 
         Delete
       </Button>
       </Table.Cell>

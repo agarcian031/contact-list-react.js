@@ -29,7 +29,7 @@ class App extends Component {
   render() {
 
     return (
-      <Container style={{paddingTop: '25px', }}> 
+      <Container style={{paddingTop: '25px', textAlign:"center" }}> 
         <Header as="h1" icon textAlign="center" color="blue">
           <Icon name="address book outline" circular/>
           Contact List
