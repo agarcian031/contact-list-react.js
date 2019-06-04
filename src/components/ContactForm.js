@@ -1,52 +1,55 @@
-import React, { Component } from 'react'
-import {Form, FormInput} from 'semantic-ui-react'; 
+import React from 'react';
+import { Form, } from "semantic-ui-react";
 
-export default class ContactForm extends Component {
-  // Name of the state needs to match the name in the input form. 
-  state = { name: "", phone: "", }; 
+class Contact extends React.Component {
+  state = { name: "", phone: "", };
 
-  handleChange = (e, {name, value, }) => {
-    // switch(e.target.name) {
-    //   case "name": 
-    //   this.setState({name: e.target.value})
-    //   break 
-    //   case "phone": 
-    //   this.setState({phone: e.target.value})
-    //   break
+  handleChange = (event) => {
+    // The NAME("name", "phone") of the state needs to match the name of Form.Input name=("name", "phone")
+    this.setState({ [event.target.name]: event.target.value, });
+    // switch(event.target.name) {
+    //   case "name":
+    //   this.setState({ name: event.target.value});
+    //   break;
+    //   case "phone":
+    //   this.setState({ phone: event.target.value});
+    //   break;
     // }
-    this.setState({[name]: value,})
-
   };
 
   handleSubmit = (event) => {
-    debugger
+    event.preventDefault();
+    // Call a function to add a contact to state
+    this.props.add(this.state);
+    this.setState({ name: "", phone: "", });
   }
 
-  render() {
+  render () {
+    // OBJECT DESTRUCTURING
+    // const { name, phone,} = this.state
+
     return (
       <Form onSubmit={this.handleSubmit}>
-       <Form.Group widths="equal">
-         <Form.Input
-         fluid
-         label="Name:"
-         placeholder="Name"
-         name="name"
-         value={this.state.name}
-         onChange={this.handleChange}
-         />
-         
-         <Form.Input
-         fluid
-         label="Phone:"
-         placeholder="Phone"
-         name="phone"
-         value={this.state.phone}
-         onChange={this.handleChange}
-         />
-         <br/>
-         <Form.Button color="green">Submit</Form.Button>
-         </Form.Group> 
+        <Form.Group widths="equal">
+          <Form.Field inline fluid>
+            <label>Name</label>
+            <input placeholder="Name" 
+            name="name"
+            value={this.state.name}
+            onChange={this.handleChange}/>
+          </Form.Field> 
+          <Form.Field inline fluid>
+            <label>Phone</label>
+            <input placeholder="Phone" 
+            name="phone"
+            value={this.state.phone}
+            onChange={this.handleChange}/>
+          </Form.Field> 
+          <Form.Button color="green" fluid>Submit</Form.Button>
+        </Form.Group>
       </Form>
     )
   }
 }
+
+export default Contact;
